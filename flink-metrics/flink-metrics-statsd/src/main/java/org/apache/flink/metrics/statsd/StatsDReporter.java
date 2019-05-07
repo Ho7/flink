@@ -181,7 +181,7 @@ public class StatsDReporter extends AbstractReporter implements Scheduled {
 
 	private void send(final String name, final String value) {
 		try {
-			String formatted = String.format("%s:%s|g", name, value);
+			String formatted = String.format("resources.flink.clickstream-test.%s:%s|g", name, value);
 			byte[] data = formatted.getBytes(StandardCharsets.UTF_8);
 			socket.send(new DatagramPacket(data, data.length, this.address));
 		}
